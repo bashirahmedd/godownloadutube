@@ -3,20 +3,25 @@ package utube
 import (
 	"fmt"
 
-	//"github.com/ThorstenHans/stringer/pkg/stringer"
 	"github.com/spf13/cobra"
+
+	cutils "github.com/bashirahmedd/godownloadutube/pkg/common"
+	video "github.com/bashirahmedd/godownloadutube/pkg/utube"
 )
 
 var reverseCmd = &cobra.Command{
-	
-	Use:     "reverse",
-	Aliases: []string{"rev"},
-	Short:   "Reverses a string",
-	Args:    cobra.ExactArgs(1),
+
+	Use:     "video",
+	Aliases: []string{"vid"},
+	Short:   "Download videos .mp4",
+	//Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		//res := stringer.Reverse(args[0])
 		res := "downloading videos"
 		fmt.Println(res)
+
+		config := cutils.GetShareConfig()
+		video.Download(config)	
 	},
 }
 

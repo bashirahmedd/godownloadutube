@@ -17,6 +17,7 @@ var inspectCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 
 		i := args[0]
+		fmt.Println(onlyDigits)
 		//res, kind := stringer.Inspect(i, onlyDigits)
 		res, kind := 3, "bashir123"
 

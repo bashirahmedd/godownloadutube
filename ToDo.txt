@@ -1,0 +1,86 @@
+youtube video should be downloaded in fixed size buffer and written to the target file.
+in each buffer read, exit signal should be tested.
+the target file should be post fixed with .part and rename by removing .part when download is completed.
+
+
+
+input video should be in the json object format with option to right back to the source file to mark download failure.
+sqllite db could be used.
+or any embedded db
+
+
+first make a working tagged release of video download and playlist download
+do the lower change on separate branch.
+instead of chunking a single video to download in pieces.
+provide config to download n videos simultaneously, in the different go routines, 
+option to cancel context, use channels and defer routinces 
+
+nitial state is good...
+Input id list is backed up.
+backed-up to ./log/1671024048_backup_video_id.log
+Starting download of 15 tasks.
+-----------------------------
+Target file id: tj7t3642b8o
+[youtube] tj7t3642b8o: Downloading webpage
+[download] Destination: /home/naji/Downloads/temp/ytdown/1671024048_Ertugrul Ghazi Urdu _ Episode 84_ Season 3_TRT Originals Urdu_tj7t3642b8o.mp4
+[download]  99.8% of 167.00MiB at 35.17KiB/s ETA 00:08[download] Got server HTTP error: [Errno 104] Connection reset by peer. Retrying (attempt 1 of 10)...
+[download] Destination: /home/naji/Downloads/temp/ytdown/1671024048_Ertugrul Ghazi Urdu _ Episode 84_ Season 3_TRT Originals Urdu_tj7t3642b8o.mp4
+[download] 100% of 167.00MiB in 01:21:07
+fn_process_fsize :https://www.youtube.com/watch?v=tj7t3642b8o
+success: tj7t3642b8o
+Hooray! task 1 out of 15 is successful.
+-----------------------------
+Target file id: gBNRl74NeiQ
+[youtube] gBNRl74NeiQ: Downloading webpage
+[download] Destination: /home/naji/Downloads/temp/ytdown/1671024049_Ertugrul Ghazi Urdu _ Episode 85_ Season 3_TRT Originals Urdu_gBNRl74NeiQ.mp4
+[download] 100% of 190.70MiB in 01:20:50
+fn_process_fsize :https://www.youtube.com/watch?v=gBNRl74NeiQ
+success: gBNRl74NeiQ
+Hooray! task 2 out of 15 is successful.
+-----------------------------
+Target file id: 7oYgAQcN8v4
+[youtube] 7oYgAQcN8v4: Downloading webpage
+[download] Destination: /home/naji/Downloads/temp/ytdown/1671024050_Ertugrul Ghazi Urdu _ Episode 83_ Season 3_TRT Originals Urdu_7oYgAQcN8v4.mp4
+[download] 100% of 150.46MiB in 27:30
+fn_process_fsize :https://www.youtube.com/watch?v=7oYgAQcN8v4
+success: 7oYgAQcN8v4
+Hooray! task 3 out of 15 is successful.
+-----------------------------
+Target file id: AAC2u7rXq1w
+
+
+
+
+
+
+
+Input File: 
+         /home/naji/Downloads/temp/ytdown/input/video_id.json size is 7750 bytes
+Previously Failed IDs File: 
+         /home/naji/Downloads/temp/ytdown/input/next_iteration.json size is 0 bytes
+2022/12/16 22:16:00 Input id list is backed up.
+2022/12/16 22:16:00 Backed-up to : /home/naji/Downloads/temp/ytdown/log/1671210960476_backup_video_id.log
+Starting download of 28 tasks
+-----------------------------
+2022/12/16 22:17:12 Target file id: clXvN0xUKPw
+2022/12/16 22:17:16 Target video size : 21.1 MB
+2022/12/16 22:17:16 Destination: /home/naji/Downloads/temp/ytdown/1671210960490_Do you have a healthy memory? Test yourself by completing this quiz. | WIKIFUN_clXvN0xUKPw.mp4
+21.14 MB / 22.14 MB [------------------------------------------------------------------------------->___] 95.51% 7.82 kB p/s 45m5s
+2022/12/16 23:02:20 read tcp 192.168.0.108:39460->103.125.178.76:443: read: connection reset by peer
+-----------------------------
+2022/12/16 23:03:04 Target file id: eQpOd7Q0ZNE
+2022/12/16 23:03:08 Target video size : 25.6 MB
+2022/12/16 23:03:08 Destination: /home/naji/Downloads/temp/ytdown/1671213740441_A memory game with 10 tests. Will you pass it? | WIKIFUN_eQpOd7Q0ZNE.mp4
+26.54 MB / 26.86 MB [--------------------------------------------------------------------------------->] 98.82% 16.34 kB p/s 27m6s
+2022/12/16 23:30:14 read tcp 192.168.0.108:57868->103.125.179.13:443: read: connection reset by peer
+-----------------------------
+2022/12/16 23:30:56 Target file id: 7PYYEb_XzfU
+2022/12/16 23:30:58 Target video size : 44.7 MB
+2022/12/16 23:30:58 Destination: /home/naji/Downloads/temp/ytdown/1671215414051_Train YOUR MEMORY | 15 really difficult tests How many failures will you have? | WIKIFUN_7PYYEb_XzfU.mp4
+3.66 MB / 46.93 MB [------>________________________________________________________________________] 7.79% 16.51 kB p/s ETA 43m40s
+
+2022/12/19 13:23:02 In progress size : 1251435  remaining: 258190 
+2022/12/19 13:23:03 Read Status: num: 16384 status: <nil>
+2022/12/19 13:23:03 In progress size : 1267819  remaining: 241806 
+2022/12/19 13:25:32 Read Status: num: 0 status: read tcp 192.168.0.108:48346->103.73.100.140:443: read: connection reset by peer
+2022/12/19 13:25:34 read tcp 192.168.0.108:48346->103.73.100.140:443: read: connection reset by peer
